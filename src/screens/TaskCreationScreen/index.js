@@ -31,7 +31,7 @@ export default function TaskCreationScreen({ navigation, route }) {
   }
 
   function addNewTask() {
-    if(json.length) {
+    if(json && json.length) {
       json.push(state)
       storage.set('Card', JSON.stringify(json))
     } else {

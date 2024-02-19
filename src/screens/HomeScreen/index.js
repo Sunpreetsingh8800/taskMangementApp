@@ -36,11 +36,9 @@ export default function HomeScreen({ navigation }) {
     setTimeAndDate(dAndT)
   }
 
-  console.log(new Date(timeAndDate).getSeconds()+1)
-
   useEffect(() => {
     const jsonUser = storage.getString('Card')
-    const userObject = JSON.parse(jsonUser)
+    const userObject = jsonUser && JSON.parse(jsonUser)
     const myInterval = setInterval(() => updateDateAndTime(new Date()), 1000);
     setIntervalId(myInterval)
     SetJson(userObject);
@@ -48,7 +46,7 @@ export default function HomeScreen({ navigation }) {
 
   const refresh = () => {
     const jsonUser = storage.getString('Card')
-    const userObject = JSON.parse(jsonUser)
+    const userObject = jsonUser && JSON.parse(jsonUser)
     const myInterval = setInterval(() => updateDateAndTime(new Date()), 1000);
     setIntervalId(myInterval)
     SetJson(userObject)
